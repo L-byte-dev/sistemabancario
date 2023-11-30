@@ -5,6 +5,7 @@ import org.informatorio.domain.Cliente;
 import org.informatorio.domain.CuentaBancaria;
 
 public interface ClienteServicio {
+    void registrarCliente();
     void agregarCuenta(Cliente cliente, CuentaBancaria cuentaBancaria);
     void eliminarCuenta(Cliente cliente);
     void consultarSaldoTotal(Cliente cliente);

@@ -1,9 +1,8 @@
 package org.informatorio.servicio.cuenta.cuentabancaria;
 
-import org.informatorio.domain.Cliente;
-import org.informatorio.domain.CuentaAhorro;
-import org.informatorio.domain.CuentaBancaria;
+import org.informatorio.domain.*;
 import org.informatorio.entrada.InputConsoleService;
+import org.informatorio.servicio.cliente.ClienteServicio;
 import org.informatorio.servicio.cliente.ClienteServicioImpl;
 
 import java.util.List;
@@ -11,6 +10,39 @@ import java.util.Objects;
 
 public class CuentaBancariaServicioImpl implements CuentaBancariaServicio {
     public static final String MENSAJE_CANTIDAD_MINIMA_TEMPLATE =  "El monto ingresado debe ser mayor que 0";
+
+    private ClienteServicio clienteServicio;
+
+    public CuentaBancariaServicioImpl() {
+    }
+
+    public CuentaBancariaServicioImpl(ClienteServicio clienteServicio) {
+        this.clienteServicio = clienteServicio;
+    }
+
+    public void setClienteServicio(ClienteServicio clienteServicio) {
+        this.clienteServicio = clienteServicio;
+    }
+
+    @Override
+    public void abrirCuenta(Cliente cliente) {
+        System.out.println("Seleccione el tipo de cuenta que desea abrir: ");
+        System.out.println("1. Cuenta de ahorro");
+        System.out.println("2. Cuenta corriente");
+        int opc = InputConsoleService.getScanner().nextInt();
+        switch (opc){
+            case 1:
+                CuentaBancaria cuentaAhorro = new CuentaAhorro();
+                clienteServicio.agregarCuenta(cliente, cuentaAhorro);
+                break;
+            case 2:
+                CuentaBancaria cuentaCorriente = new CuentaCorriente();
+                clienteServicio.agregarCuenta(cliente, cuentaCorriente);
+                break;
+            default:
+                System.out.println("Error! Opcion invalida");
+        }
+    }
 
     @Override
     public void depositar(CuentaBancaria cuentaBancaria, double monto) {

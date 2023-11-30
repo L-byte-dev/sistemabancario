@@ -2,14 +2,17 @@ package org.informatorio.servicio.menu.principal;
 
 import org.informatorio.entrada.InputConsoleService;
 import org.informatorio.servicio.banco.BancoServicio;
+import org.informatorio.servicio.cliente.ClienteServicio;
 import org.informatorio.servicio.menu.cliente.MenuCliente;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private BancoServicio bancoServicio;
+    private ClienteServicio clienteServicio;
     private MenuCliente menuCliente;
 
-    public MenuPrincipalImpl(BancoServicio bancoServicio, MenuCliente menuCliente) {
+    public MenuPrincipalImpl(BancoServicio bancoServicio, ClienteServicio clienteServicio, MenuCliente menuCliente) {
         this.bancoServicio = bancoServicio;
+        this.clienteServicio = clienteServicio;
         this.menuCliente = menuCliente;
     }
 
@@ -27,7 +30,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
 
             switch (opc){
                 case 1:
-                    bancoServicio.registrarCliente();
+                    clienteServicio.registrarCliente();
                     break;
                 case 2:
                     menuCliente.seleccionarCliente();

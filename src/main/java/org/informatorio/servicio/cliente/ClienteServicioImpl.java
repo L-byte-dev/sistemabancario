@@ -22,6 +22,16 @@ public class ClienteServicioImpl implements ClienteServicio {
     }
 
     @Override
+    public void registrarCliente() {
+        System.out.println("Escriba su nombre: ");
+        String nombre = InputConsoleService.getScanner().next();
+        System.out.println("Escriba su dirección: ");
+        String direccion = InputConsoleService.getScanner().next();
+        Cliente cliente = new Cliente(nombre, direccion);
+        banco.getClientes().add(cliente);
+    }
+
+    @Override
     public void agregarCuenta(Cliente cliente, CuentaBancaria cuentaBancaria) {
         cuentaBancaria.setTitular(cliente);
         cuentaBancaria.setSaldo(0.0);

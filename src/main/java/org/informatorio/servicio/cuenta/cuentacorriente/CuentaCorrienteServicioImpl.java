@@ -1,9 +1,14 @@
 package org.informatorio.servicio.cuenta.cuentacorriente;
 
 import org.informatorio.domain.CuentaCorriente;
+import org.informatorio.servicio.cliente.ClienteServicio;
 import org.informatorio.servicio.cuenta.cuentabancaria.CuentaBancariaServicioImpl;
 
 public class CuentaCorrienteServicioImpl extends CuentaBancariaServicioImpl implements CuentaCorrienteServicio{
+    public CuentaCorrienteServicioImpl(ClienteServicio clienteServicio) {
+        super(clienteServicio);
+    }
+
     @Override
     public void retirar(CuentaCorriente cuentaCorriente, double monto) {
         double saldoDisponible = cuentaCorriente.getSaldo() + cuentaCorriente.getLIMITE_SOBREGIRO();

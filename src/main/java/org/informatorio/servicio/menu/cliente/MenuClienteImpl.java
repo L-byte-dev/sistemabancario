@@ -32,9 +32,9 @@ public class MenuClienteImpl implements MenuCliente {
 
     @Override
     public void menuCliente(Cliente cliente) {
-        CuentaBancariaServicio cuentaBancariaServicio = new CuentaBancariaServicioImpl();
-        CuentaAhorroServicio cuentaAhorroServicio = new CuentaAhorroServicioImpl();
-        CuentaCorrienteServicio cuentaCorrienteServicio = new CuentaCorrienteServicioImpl();
+        CuentaBancariaServicio cuentaBancariaServicio = new CuentaBancariaServicioImpl(clienteServicio);
+        CuentaAhorroServicio cuentaAhorroServicio = new CuentaAhorroServicioImpl(clienteServicio);
+        CuentaCorrienteServicio cuentaCorrienteServicio = new CuentaCorrienteServicioImpl(clienteServicio);
         MenuCuenta menuCuenta = new MenuCuentaImpl(cuentaBancariaServicio, cuentaAhorroServicio, cuentaCorrienteServicio);
         int opc;
         do {
@@ -49,7 +49,7 @@ public class MenuClienteImpl implements MenuCliente {
 
             switch (opc) {
                 case 1:
-                    bancoServicio.abrirCuenta(cliente);
+                    cuentaBancariaServicio.abrirCuenta(cliente);
                     break;
                 case 2:
                     clienteServicio.eliminarCuenta(cliente);
