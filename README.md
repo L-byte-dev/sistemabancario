@@ -35,15 +35,15 @@ Define una interfaz y una implementación para exportar información de cuentas 
 
 **BancoServicio y BancoServicioImpl:**
 
-Define una interfaz y una implementación para servicios bancarios, como registrar clientes, abrir cuentas y exportar cuentas a CSV.
+Define una interfaz y una implementación para servicios bancarios como exportar cuentas a CSV.
 
 **ClienteServicio y ClienteServicioImpl:**
 
-Define una interfaz y una implementación para servicios relacionados con clientes, como agregar o eliminar cuentas, consultar saldos y mostrar información del cliente.
+Define una interfaz y una implementación para servicios relacionados con clientes, como registrar clientes, agregar o eliminar cuentas, consultar saldos y mostrar información del cliente.
 
 **CuentaBancariaServicio y CuentaBancariaServicioImpl:**
 
-Define una interfaz y una implementación para servicios relacionados con cuentas bancarias, como depositar, retirar y mostrar información de cuentas.
+Define una interfaz y una implementación para servicios relacionados con cuentas bancarias, como abrir cuentas, depositar, retirar y mostrar información de cuentas.
 
 **CuentaAhorroServicio y CuentaAhorroServicioImpl:**
 
@@ -73,7 +73,7 @@ Punto de entrada principal para la aplicación. Se crea una instancia del banco 
 
 La aplicación comienza en la clase App al crear instancias de las clases necesarias.
 Se utiliza un menú principal (MenuPrincipal) para interactuar con el usuario y realizar operaciones como registrar clientes, seleccionar clientes y exportar datos a CSV.
-La clase BancoServicioImpl implementa las operaciones del banco, como registrar clientes, abrir cuentas y exportar datos a CSV.
+La clase BancoServicioImpl permite exportar datos de cuentas a CSV.
 Los menús de cliente (MenuCliente) y cuenta (MenuCuenta) permiten realizar operaciones específicas para clientes y cuentas bancarias, respectivamente.
 Se utilizan servicios específicos para manipular cuentas de ahorro, cuentas corrientes y otras operaciones relacionadas con clientes y cuentas bancarias.
 La aplicación sigue un diseño modular y orientado a objetos, lo que facilita la expansión y mantenimiento del código.
